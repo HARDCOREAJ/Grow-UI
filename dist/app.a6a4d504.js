@@ -12312,7 +12312,17 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: ['icon', 'iconPosition']
+  //props: ['icon', 'iconPosition']
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator: function validator(value) {
+        return value === 'left' || value === 'right';
+      }
+    }
+  }
 };
 exports.default = _default;
         var $f02ec6 = exports.default || module.exports;
@@ -12419,7 +12429,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53573" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54130" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
