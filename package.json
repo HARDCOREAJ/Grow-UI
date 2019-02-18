@@ -21,12 +21,13 @@
   },
   "homepage": "https://github.com/HARDCOREAJ/Kiwi-UI#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "vue": "^2.6.6",
     "vue-hot-reload-api": "^2.3.2"
   },
-    "alias": {
-      "vue": "./node_modules/vue/dist/vue.common.js"
-    },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
+  },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.5.2",
     "parcel-bundler": "^1.11.0",
