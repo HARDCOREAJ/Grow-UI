@@ -33,10 +33,6 @@ export default {
     }
   }
 };
-var div = document.createElement("div"); // created
-var childDiv = document.createElement("div"); // child created
-div.appendChild(childDiv); // child mounted
-document.body.appendChild(div); // mounted
 </script>
 
 <style scoped lang="scss">
