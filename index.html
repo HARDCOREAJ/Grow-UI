@@ -56,18 +56,9 @@
 <body>
   <div id="app">
     <div>
-      <g-row>
-        <g-col span="8" :narrow-pc="{span:12, offset:12}">
-          <div class="demo"></div>
-        </g-col>
-      </g-row>
-      <g-row>
-        <g-col span="23" offset="12" :narrow-pc="{span:12, offset:12}">
-          <div class="demo"></div>
-        </g-col>
-        <g-col span="1" offset="12" :narrow-pc="{span:12, offset:12}">
-            <div class="demo"></div>
-          </g-col>
+      <g-row gutter="20">
+        <g-col span="1" :narrow-pc="{span:1, offset:12}" :wide-pc="{span:1, offset:2}" class="demo">1</g-col>
+        <g-col span="1" :narrow-pc="{span:1, offset:12}" :wide-pc="{span:1, offset:2}">2</g-col>
       </g-row>
     </div>
     <div class="box">

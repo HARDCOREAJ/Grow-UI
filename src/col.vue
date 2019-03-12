@@ -41,10 +41,10 @@ export default {
       if (!obj) return [];
       let array = [];
       if (obj.span) {
-        array.push("col-${str}${obj.span}");
+        array.push(`col-${str}${obj.span}`);
       }
       if (obj.offset) {
-        array.push("col-${str}${obj.offset}");
+        array.push(array.push(`offset-${str}${obj.offset}`));
       }
       return array;
     }
@@ -56,11 +56,11 @@ export default {
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
-        createClasses({ span, offset }),
-        createClasses(ipad, "ipad-"),
-        createClasses(narrowPc, "narrow-pc-"),
-        createClasses(pc, "pc-"),
-        createClasses(widePc, "wide-pc-")
+        ...createClasses({ span, offset }),
+        ...createClasses(ipad, "ipad-"),
+        ...createClasses(narrowPc, "narrow-pc-"),
+        ...createClasses(pc, "pc-"),
+        ...createClasses(widePc, "wide-pc-")
       ];
     },
     colStyle() {
