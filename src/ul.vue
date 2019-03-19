@@ -16,6 +16,6 @@ ul {
   border-top: 6px solid #70c2c2;
   width: 200px;
   margin: 0 auto;
-  color:#DDDEDD;
+  color:grey;
 }
 </style>

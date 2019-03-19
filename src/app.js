@@ -12,6 +12,8 @@ import Content from './content'
 import Footer from './footer'
 import Ul from './ul'
 import Li from './li'
+import Toast from './toast'
+import plugIn from './plugIn';
 
 
 Vue.component('g-button', Button)
@@ -27,6 +29,8 @@ Vue.component('g-footer', Footer)
 Vue.component('g-sider', Sider)
 Vue.component('g-ul', Ul)
 Vue.component('g-li', Li)
+Vue.component('g-toast', Toast)
+Vue.use(plugIn)
 
 new Vue({
   el: '#app',
@@ -37,10 +41,16 @@ new Vue({
     message: 'hi',
   },
   created() {
+
   },
   methods: {
     inputChange(e) {
       console.log(e)
     },
+    showToast(){
+      this.$toast('文字', {
+        enableHtml: true
+      })
+    }
   }
 })

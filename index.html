@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>轱辘</title>
+  <title>GrowUI</title>
   <style>
     * {
       margin: 0;
@@ -47,7 +47,7 @@
 <body>
   <div id="app">
     <div class="box">
-      <g-button :loading="loading1" @click="loading1 = !loading1">
+      <g-button @click='showToast'>
         按钮
       </g-button>
       <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
@@ -62,11 +62,6 @@
         <g-button icon="right" icon-position="right">下一页</g-button>
       </g-button-group>
     </div>
-    <g-ul>
-        <g-li>AKA社会主义接班人</g-li>
-        <g-li>AKA接班人</g-li>
-        <g-li>接班人</g-li>
-    </g-ul>
   </div>
 
   <script src="./src/app.js"></script>

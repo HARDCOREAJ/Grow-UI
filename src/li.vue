@@ -47,7 +47,7 @@ li {
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
-    line-height: 28px;
+    line-height: 38px;
     position: relative;
     text-decoration: none;
     page-break-after: 10px 15px;
