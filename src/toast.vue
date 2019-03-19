@@ -1,5 +1,5 @@
 <template>
- <div class="toast" ref="wrapper">
+ <div class="toast" ref="wrapper" :class="setPosition">
     <div class="message">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
@@ -14,6 +14,13 @@
 export default {
   name: "Toast",
   props: {
+    position: {
+      type: String,
+      default: "top",
+      validator(val) {
+        return ["top", "bottom", "middle"].indexOf(val) >= 0;
+      }
+    },
     autoClose: {
       type: Boolean,
       default: true
@@ -41,6 +48,11 @@ export default {
     this.updateStyles();
     this.execAutoClose();
   },
+  computed: {
+    setPosition() {
+      return { [`position-${this.position}`]: true };
+    }
+  },
   methods: {
     updateStyles() {
       this.$nextTick(() => {
@@ -66,7 +78,7 @@ export default {
     onClickClose() {
       this.close();
       if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback(this); //this === toast实例,接受当前组件作为实例
+        this.closeButton.callback(this); //this === toast实例,接受的参数为当前组件作为实例
       }
     }
   }
@@ -81,9 +93,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   height: $toast-min-height;
   line-height: 1.8;
   position: fixed;
-  top: 0;
   left: 50%;
-  transform: translateX(-20%);
   display: flex;
   color: white;
   align-items: center;
@@ -102,6 +112,18 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     height: 100%;
     border-left: 1px solid #666;
     margin-left: 16px;
+  }
+  &.position-top {
+    top: 0;
+    transform: translateX(-50%);
+  }
+  &.position-bottom {
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

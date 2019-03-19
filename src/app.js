@@ -32,6 +32,9 @@ Vue.component('g-li', Li)
 Vue.component('g-toast', Toast)
 Vue.use(plugIn)
 
+import createElement from 'vue'
+const h = createElement
+
 new Vue({
   el: '#app',
   data: {
@@ -48,8 +51,17 @@ new Vue({
       console.log(e)
     },
     showToast(){
-      this.$toast('文字', {
-        enableHtml: true
+      this.$toast('你的智商需要充值！', {
+        position: 'middle',
+        enableHtml: false,
+        closeButton: {
+          text: '已充值',
+          callback(vm) {
+            vm.log('他说已经充值智商了')
+          }
+        },
+        autoClose: false,
+        autoCloseDelay: 3
       })
     }
   }
