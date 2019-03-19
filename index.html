@@ -17,11 +17,6 @@
       max-width: 100%;
     }
 
-    .demo {
-
-      border: 1px solid #666;
-      min-height: 100px;
-    }
 
     html {
       --button-height: 32px;
@@ -35,7 +30,9 @@
     }
 
     #app {}
-
+    .demo{
+      margin-top: 100px
+    }
     body {
       font-size: var(--font-size);
     }
@@ -49,14 +46,27 @@
 
 <body>
   <div id="app">
-    <g-layout style="height: 100vh;">
-      <g-sider class="demo">sider</g-sider>
-      <g-layout>
-        <g-header class="demo">header</g-header>
-        <g-content class="demo">content</g-content>
-        <g-footer class="demo">footer</g-footer>
-      </g-layout>
-    </g-layout>
+    <div class="box">
+      <g-button :loading="loading1" @click="loading1 = !loading1">
+        按钮
+      </g-button>
+      <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
+        按钮
+      </g-button>
+      <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
+        按钮
+      </g-button>
+      <g-button-group>
+        <g-button icon="left">上一页</g-button>
+        <g-button>更多</g-button>
+        <g-button icon="right" icon-position="right">下一页</g-button>
+      </g-button-group>
+    </div>
+    <g-ul>
+        <g-li>AKA社会主义接班人</g-li>
+        <g-li>AKA接班人</g-li>
+        <g-li>接班人</g-li>
+    </g-ul>
   </div>
 
   <script src="./src/app.js"></script>

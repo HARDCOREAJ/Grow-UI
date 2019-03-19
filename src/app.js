@@ -10,6 +10,8 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
+import Ul from './ul'
+import Li from './li'
 
 
 Vue.component('g-button', Button)
@@ -23,6 +25,8 @@ Vue.component('g-header', Header)
 Vue.component('g-content', Content)
 Vue.component('g-footer', Footer)
 Vue.component('g-sider', Sider)
+Vue.component('g-ul', Ul)
+Vue.component('g-li', Li)
 
 new Vue({
   el: '#app',

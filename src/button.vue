@@ -1,5 +1,5 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}"  @click="$emit('click')">
+  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
     <g-icon class="icon" v-if="icon&&!loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <div class="content">
@@ -8,9 +8,9 @@
   </button>
 </template>
 <script>
-import Vue from 'vue'
-import Icon from './icon'
-Vue.component('g-icon',Icon)
+import Vue from "vue";
+import Icon from "./icon";
+Vue.component("g-icon", Icon);
 export default {
   props: {
     icon: {},
@@ -41,9 +41,12 @@ export default {
   animation: loading 1.5s infinite linear;
 }
 .g-button {
+  position: relative;
+  overflow: hidden;
   font-size: var(--font-size);
   height: var(--button-height);
   padding: 0 1em;
+  height:var(--button-height);
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-bg);
@@ -68,10 +71,10 @@ export default {
     margin-right: 0.1em;
   }
   &.icon-right {
-    > .content {
+    .content {
       order: 1;
     }
-    > .icon {
+    .icon {
       order: 2;
       margin-right: 0;
       margin-left: 0.1em;
