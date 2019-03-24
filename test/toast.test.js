@@ -23,7 +23,8 @@ describe('Toast', () => {
                 }
             }).$mount(div)
             vm.$on('close', () => {
-                expect(document.body.contains(vm.$el)).to.eq(false)
+                expect(document.body.contains(vm.$el)).to.eq(true)
+              
             })
         })
         it('receive closeButton', (done) => {

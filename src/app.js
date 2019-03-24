@@ -13,7 +13,13 @@ import Footer from './footer'
 import Ul from './ul'
 import Li from './li'
 import Toast from './toast'
-import plugIn from './plugIn';
+import plugIn from './plugIn'
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsBody from './tabs-body'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
+
 
 
 Vue.component('g-button', Button)
@@ -31,6 +37,12 @@ Vue.component('g-ul', Ul)
 Vue.component('g-li', Li)
 Vue.component('g-toast', Toast)
 Vue.use(plugIn)
+Vue.component('g-tabs', Tabs)
+Vue.component('g-tabs-head', TabsHead)
+Vue.component('g-tabs-body', TabsBody)
+Vue.component('g-tabs-item', TabsItem)
+Vue.component('g-tabs-pane', TabsPane)
+
 
 import createElement from 'vue'
 const h = createElement
