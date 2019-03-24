@@ -54,6 +54,7 @@ new Vue({
     loading2: true,
     loading3: false,
     message: 'hi',
+    selectedTab: 'sports'
   },
   created() {
 
@@ -74,6 +75,9 @@ new Vue({
         },
         autoClose: 3,
       })
+    },
+    bindSlected(data){
+      console.log(data)
     }
   }
 })

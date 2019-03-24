@@ -64,7 +64,7 @@
         <g-button icon="right" icon-position="right">下一页</g-button>
       </g-button-group>
     </div>
-    <g-tabs :selected.sync="selectedTab">
+    <g-tabs :selected.sync="selectedTab" @update:selected="bindSlected">
       <g-tabs-head>
         <template slot="actions">
           <button>设置</button>

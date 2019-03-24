@@ -7,24 +7,39 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
   name: "GrowTabs",
+  data() {
+    return { eventBus: new Vue() };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
   props: {
     selected: {
-      default: false,
-      type: String
+      type: String,
+      required: true,
     },
-    direction: { default: "horizontal", type: String,
-    validator(value){
-         return ['horizontal', 'vertical'].indexOf(value)>0
-    } }
+    direction: {
+      type: String,
+      default: "horizontal",
+      validator(value) {
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
+      }
+    }
+  },
+  mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .tabs {
-    border: 1px red solid;
+  border: 1px red solid;
 }
 </style>
 

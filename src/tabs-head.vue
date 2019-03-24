@@ -1,15 +1,27 @@
 <template>
   <div class="tabs-head">
     <slot></slot>
-    <slot name="actions"></slot>
+    <div class="actions-wrapper"><slot name="actions"></slot></div>
   </div>
 </template>
 <script>
-  export default {
-    name: 'GrowTabsHead'
+export default {
+  name: "GrowTabsHead",
+  inject: ["eventBus"],
+  created() {
+    
   }
+};
 </script>
-<style>
-  .tabs-head {
+<style <style lang="scss" scoped>
+$tab-height: 40px;
+.tabs-head {
+  display: flex;
+  height: $tab-height;
+  justify-content: flex-start;
+  border: 1px solid purple;
+  > .actions-wrapper {
+    margin-left: auto;
   }
+}
 </style> 
