@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" @click="change()" :class="activeClass">
+  <div class="tabs-item" @click="change()" :class="activeClass" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -26,26 +26,31 @@ export default {
     activeClass() {
       return {
         active: this.active,
-        disabled:this.disabled
+        disabled: this.disabled
       };
     }
   },
   created() {
-    this.eventBus.$on("update:selected", name => {
-      this.active = name === this.name; //if current head is selected, then active itself
-    });
+    if (this.eventBus) {
+      this.eventBus.$on("update:selected", name => {
+        this.active = name === this.name; //if current head is selected, then active itself
+      });
+    }
   },
   methods: {
     change() {
-      if(this.disabled){return}
-      this.eventBus.$emit("update:selected", this.name,this);
+      if (this.disabled) {
+        return;
+      }
+      this.eventBus.$emit("update:selected", this.name, this);
+      this.$emit('click', this)//specially for unit test 
     }
   }
 };
 </script>
 <style <style lang="scss" scoped>
-$blue:blue;
- $disabled-text-color: grey;
+$blue: blue;
+$disabled-text-color: grey;
 .tabs-item {
   flex-shrink: 0;
   padding: 0 1em;
@@ -57,8 +62,9 @@ $blue:blue;
     color: blue;
     font-weight: bold;
   }
-   &.disabled {
-      color: $disabled-text-color;
-    }
+  &.disabled {
+    color: $disabled-text-color;
+    cursor: not-allowed;
+  }
 }
 </style> 

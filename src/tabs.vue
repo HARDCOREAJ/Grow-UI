@@ -32,6 +32,10 @@ export default {
     }
   },
   mounted() {
+    if (this.$children.length === 0) {
+        console && console.warn &&
+        console.warn('tabs shoul contain tabs-head&tabs-nav')
+      }
     this.$children.forEach(vm => {
       if (vm.$options.name === "GrowTabsHead") {
         vm.$children.forEach(childVm => {
