@@ -78,7 +78,7 @@ new Vue({
       })
     },
     bindSlected(){
-      console.log(1)
+      
     }
   }
 })

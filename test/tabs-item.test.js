@@ -15,32 +15,34 @@ Vue.component('g-tabs-pane', TabsPane)
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
-describe('tabs-item', () => {
-    it('exist', () => {
-        expect(TabsItem).to.exist
-    })
+describe('TabsItem', () => {
 
-    it('receive name props', () => {
-        const construsctor = Vue.extend(TabsItem)
-        const vm = new construsctor({
-            propsData: {
-                name: 'xx'
-            }
-        }).$mount()
-        expect(vm.$el.getAttribute('data-name')).to.equal('xx')
-    })
-    it('receive disabled props', () => {
-        const Constructor = Vue.extend(TabsItem)
-        const vm = new Constructor({
-            propsData: {
-                disabled: true,
-            }
-        }).$mount()
-        expect(vm.$el.classList.contains('disabled')).to.be.true
-        const callback = sinon.fake();
-        vm.$on('click', callback)
-        vm.$el.click()
-        expect(callback).to.have.not.been.called
-    })
-}
-)
+  it('exist.', () => {
+    expect(TabsItem).to.exist
+  })
+
+  it('receive name props', () => {
+    const Constructor = Vue.extend(TabsItem)
+    const vm = new Constructor({
+      propsData: {
+        name: 'ww',
+      }
+    }).$mount()
+    expect(vm.$el.getAttribute('data-name')).to.eq('ww')
+  })
+
+
+  it('receive disabled props', () => {
+    const Constructor = Vue.extend(TabsItem)
+    const vm = new Constructor({
+      propsData: {
+        disabled: true,
+      }
+    }).$mount()
+    expect(vm.$el.classList.contains('disabled')).to.be.true
+    const callback = sinon.fake();
+    vm.$on('click', callback)
+    vm.$el.click()
+    expect(callback).to.have.not.been.called
+  })
+})
