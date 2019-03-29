@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" ref="popover" @click="show">
+    <div class="popover" ref="popover">
         <div ref="contentWrapper" class="content-wrapper" v-if="visible"
         :class="{[`position-${position}`]:true}">
             <slot name="content"></slot>
@@ -16,12 +16,55 @@ export default {
   data() {
     return { visible: false };
   },
+  created() {
+
+  },
+  mounted() {
+    if (this.trigger === "click") {
+
+      this.$refs.popover.addEventListener("click", this.show);
+    } else {
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.close);
+    }
+  },
   props: {
     position: {
       type: String,
       default: "top",
       validator(value) {
         return ["top", "left", "right", "bottom"].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "hover"].indexOf(value) >= 0;
+      }
+    }
+  },
+  destroyed() {
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.show);
+    } else {
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.close);
+    }
+  },
+  computed: {
+    openEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      } else {
+        return "mouseenter";
+      }
+    },
+    closeEvent() {
+      if (this.trigger === "click") {
+        return "click";
+      } else {
+        return "mouseleave";
       }
     }
   },
@@ -31,20 +74,23 @@ export default {
       document.body.appendChild(contentWrapper);
       const height2 = contentWrapper.getBoundingClientRect().height;
       let { width, height, left, top } = triggerWrapper.getBoundingClientRect();
-        let positions = {
-          top: {top: top + window.scrollY, left: left + window.scrollX,},
-          bottom: {top: top + height + window.scrollY, left: left + window.scrollX},
-          left: {
-            top: top + window.scrollY + (height - height2) / 2,
-            left: left + window.scrollX
-          },
-          right: {
-            top: top + window.scrollY + (height - height2) / 2,
-            left: left + window.scrollX + width
-          },
+      let positions = {
+        top: { top: top + window.scrollY, left: left + window.scrollX },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
         }
-        contentWrapper.style.left = positions[this.position].left + 'px'
-        contentWrapper.style.top = positions[this.position].top + 'px'
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument(e) {
       if (
@@ -78,6 +124,7 @@ export default {
       if (this.$refs.triggerWrapper.contains(e.target)) {
         if (this.visible === true) {
           this.close();
+          console.log("click close");
         } else {
           this.open();
         }

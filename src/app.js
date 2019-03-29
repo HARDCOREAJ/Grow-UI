@@ -77,8 +77,8 @@ new Vue({
         autoClose: 3,
       })
     },
-    bindSlected(data){
-      console.log(data)
+    bindSlected(){
+      console.log(1)
     }
   }
 })
