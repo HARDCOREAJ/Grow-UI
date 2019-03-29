@@ -33,7 +33,7 @@ export default {
   created() {
     if (this.eventBus) {
       this.eventBus.$on("update:selected", name => {
-        this.active = name === this.name; //if current head is selected, then active itself
+        this.active = name === this.name; //if current headItem is selected, then active itself
       });
     }
   },
