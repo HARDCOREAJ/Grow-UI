@@ -5,8 +5,50 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   name:'GrowCollapse',
+  props:{
+      single:{
+          type:Boolean,
+          default:false
+      },
+      selected:{
+          type:Array
+      }
+  },
+  data(){
+      return {
+          eventBus:new Vue()
+      }
+  },
+  provide(){
+      return {
+          eventBus:this.eventBus
+      }
+  },
+  mounted(){
+      this.eventBus.$emit('update:selected',this.selected)
+
+      this.eventBus.$on('update:addSelected',(name)=>{
+          let selectedArray=JSON.parse(JSON.stringify(this.selected))
+          if(this.single){
+              selectedArray=[name]
+          }else{
+              selectedArray.push(name)
+          }
+          this.eventBus.$emit('update:selected',selectedArray)
+          this.$emit('update:selected',selectedArray)
+      })
+      
+      this.eventBus.$on('update:removeSelected',(name)=>{
+          let selectedArray=JSON.parse(JSON.stringify(this.selected))
+          let index=selectedArray.indexOf(name)
+          selectedArray.splice(index,1)
+          this.eventBus.$emit('update:selected',selectedArray)
+          this.$emit('update:selected',selectedArray)
+      })
+  }
 }
 </script>
 <style lang="scss" scoped>
