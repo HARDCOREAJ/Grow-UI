@@ -3,7 +3,7 @@
     <div class="title" @click="toggle">
       {{title}}
     </div>
-    <div class="content" ref="content" v-if="open">
+    <div class="content" ref="content" v-if="open" :data-name="name">
       <slot></slot>
     </div>
   </div>    

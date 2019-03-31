@@ -21,7 +21,7 @@ describe('Tabs', () => {
     expect(Tabs).to.exist
   })
 
-  it('receive selected props', (done) => {
+  it('receive selected props', () => {
 
     const div = document.createElement('div')
     document.body.appendChild(div)
@@ -45,7 +45,7 @@ describe('Tabs', () => {
     vm.$nextTick(() => {
       let tabs = vm.$el.querySelector(`.tabs-item[data-name="finance"]`)
       expect(tabs.classList.contains('active')).to.be.true
-      done()
+
     })
   })
 
