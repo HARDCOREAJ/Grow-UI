@@ -1,8 +1,11 @@
 {
-  "name": "kiwi-ui",
+  "name": "GrowUI-1996",
   "version": "0.0.1",
   "description": "个人UI框架",
   "main": "index.js",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "start": "parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
