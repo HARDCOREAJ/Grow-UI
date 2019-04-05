@@ -38,7 +38,7 @@ export default {
               selectedArray.push(name)
           }
           this.eventBus.$emit('update:selected',selectedArray)
-          this.$emit('update:selected',selectedArray)
+          this.$emit('update:selected',selectedArray) //遵循单项数据流，由父组件通知子组件
       })
       
       this.eventBus.$on('update:removeSelected',(name)=>{
@@ -46,7 +46,7 @@ export default {
           let index=selectedArray.indexOf(name)
           selectedArray.splice(index,1)
           this.eventBus.$emit('update:selected',selectedArray)
-          this.$emit('update:selected',selectedArray)
+          this.$emit('update:selected',selectedArray) //遵循单项数据流，由父组件通知子组件
       })
   }
 }

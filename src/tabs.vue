@@ -34,7 +34,7 @@ export default {
   mounted() {
     if (this.$children.length === 0) {
         console && console.warn &&
-        console.warn('tabs shoul contain tabs-head&tabs-nav')
+        console.warn('tabs shoul contain tabs-head&tabs-item')
       }
     this.$children.forEach(vm => {
       if (vm.$options.name === "GrowTabsHead") {
@@ -54,7 +54,6 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-  border: 1px red solid;
 }
 </style>
 

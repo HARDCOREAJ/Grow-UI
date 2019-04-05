@@ -61,7 +61,7 @@ new Vue({
     loading2: true,
     loading3: false,
     message: 'hi',
-    selectedTab: ['1','2']
+    selectedTab:['1','2'],
   },
   created() {
 
@@ -76,8 +76,8 @@ new Vue({
         enableHtml: false,
         closeButton: {
           text: '已充值',
-          callback(vm) {
-            vm.log('他说已经充值智商了')
+          callback() {
+
           }
         },
         autoClose: 3,

@@ -12,23 +12,26 @@
       box-sizing: border-box;
     }
 
+    .grid-content {
+      border-radius: 4px;
+      min-height: 36px;
+    }
+
+    .bg-purple-dark {
+      background: #99a9bf;
+    }
+
+    .bg-purple {
+      background: #d3dce6;
+    }
+
+    .bg-purple-light {
+      background: #e5e9f2;
+    }
+
     img {
       max-width: 100%;
     }
-
-
-    html {
-      --button-height: 32px;
-      --font-size: 14px;
-      --button-bg: white;
-      --button-active-bg: #eee;
-      --border-radius: 4px;
-      --color: #333;
-      --border-color: #999;
-      --border-color-hover: #666;
-    }
-
-    #app {}
 
     .demo {
       margin-top: 100px
@@ -63,7 +66,7 @@
         <g-button icon="right" icon-position="right">下一页</g-button>
       </g-button-group>
     </div>
-<!--     <g-tabs :selected.sync="selectedTab" @update:selected="bindSlected">
+    <!--     <g-tabs :selected.sync="selectedTab" @update:selected="bindSlected">
       <g-tabs-head>
         <template slot="actions">
           <button>设置</button>
@@ -90,6 +93,7 @@
         </g-tabs-pane>
       </g-tabs-body>
     </g-tabs> -->
+    <g-input placeholder="你好" error="你错了"></g-input>
     <div style="overflow: hidden; padding: 150px;">
       <g-popover position="left" trigger="click">
         <template slot="content" slot-scope='{close}'>
@@ -115,6 +119,49 @@
       </g-collapse>
       {{selectedTab}}
     </div>
+    <g-row gutter="10" class="g-row">
+      <g-col class="g-col" span="16">
+        <div class="grid-content bg-purple-dark"></div>
+      </g-col>
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple-dark"></div>
+      </g-col>
+    </g-row>
+    <g-row gutter="10" class="g-row">
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple"></div>
+      </g-col>
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple-light"></div>
+      </g-col>
+      <g-col class="g-col" span="4">
+        <div class="grid-content bg-purple"></div>
+      </g-col>
+      <g-col class="g-col" span="4">
+        <div class="grid-content bg-purple-light"></div>
+      </g-col>
+    </g-row>
+    <g-row gutter="10" class="g-row">
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple"></div>
+      </g-col>
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple-light"></div>
+      </g-col>
+      <g-col class="g-col" span="8">
+        <div class="grid-content bg-purple-light"></div>
+      </g-col>
+    </g-row>
+    <g-row gutter="20" class="g-row">
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-dark"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-light"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-dark"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-light"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-dark"></div></g-col>
+      <g-col class="g-col" :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ><div class="grid-content bg-purple-light"></div></g-col>
+  </g-row>
   </div>
 
   <script src="./src/app.js"></script>
