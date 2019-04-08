@@ -80,7 +80,7 @@ export default {
         this.closeButton.callback(this); //this === toast实例,接受的参数为当前组件作为实例
       }
     }
-  }
+  } 
 };
 </script>
 <style scoped lang="scss">

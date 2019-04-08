@@ -4,7 +4,7 @@ sidebarDepth: 2
 ---
 ## Icon
 
-**使用方法**
+#### 使用方法
 
 <g-icon-demo></g-icon-demo>
 
@@ -15,7 +15,7 @@ sidebarDepth: 2
 ```
 <br />
 
-**Atributes**
+#### Atributes
 
 | 参数     | 说明           | 类型  | 可选值  | 默认值  |
 | -------- |:-------------:| -----:|:--------:|:-------:|
@@ -24,7 +24,7 @@ sidebarDepth: 2
 
 ## Button
 
-**使用方法**
+#### 使用方法
 
 <button-demo></button-demo>
 
@@ -60,7 +60,7 @@ sidebarDepth: 2
 
 ## ButtonGroup
 
-**使用方法**
+#### 使用方法
 
 <button-group-demo></button-group-demo>
 

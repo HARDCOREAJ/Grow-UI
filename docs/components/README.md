@@ -8,4 +8,6 @@ title: 组件
 [Form](./form.md)
 [Layout](./layout.md)
 [Nav](./Nav.md)
+[Notice](./Notice.md)
+[Other](./Other.md)
 

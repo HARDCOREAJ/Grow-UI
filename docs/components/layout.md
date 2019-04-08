@@ -11,7 +11,7 @@ sidebarDepth: 2
 <grid-demo-1></grid-demo-1>
 
 
-**使用方法**
+#### 使用方法
 
 ``` html
 <g-row>
@@ -48,7 +48,7 @@ sidebarDepth: 2
 
 <grid-demo-2></grid-demo-2>
 
-**使用方法**
+#### 使用方法
 
 ``` html
 <g-row gutter="20">
@@ -67,22 +67,6 @@ sidebarDepth: 2
     <g-col span="7"></g-col>
 </g-row>
 ```
-
-# 响应式布局
-<grid-demo-3></grid-demo-3>
-
-**使用方法**
-
-``` html
-<g-row gutter="20">
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
-```
-
 ::: tip 实现技巧
 根据父组件的gutter属性去计算每个子组件col的相应间隔是多少  
 :::
@@ -94,6 +78,21 @@ colStyle() {
     paddingRight: this.gutter / 2 + "px"
     };
 }
+```
+
+# 响应式布局
+<grid-demo-3></grid-demo-3>
+
+#### 使用方法
+
+``` html
+<g-row gutter="20">
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
+    <g-col :pc="{span:3}" :narrow-pc="{span:6}" :ipad="{span:12}" ></g-col>
 ```
 
 
@@ -119,7 +118,7 @@ colStyle() {
 <br />
 
 ## collapse
-**使用方法**
+#### 使用方法
 <collapse-demo-1></collapse-demo-1>
 
 ``` html

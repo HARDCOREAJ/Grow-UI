@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 <input-demo></input-demo>
 
-**使用方法**
+#### 使用方法
 ``` html
     <g-input placeholder="默认状态"></g-input>
     <g-input value="初始内容"></g-input>

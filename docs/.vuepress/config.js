@@ -1,5 +1,6 @@
 module.exports = {
   title: 'Grow UI',
+  base:'/Grow-UI/',
   description: '一套用于交流和总结学习的UI',
   markdown: {
     lineNumbers: true
@@ -27,7 +28,9 @@ module.exports = {
           '/components/basic',
           '/components/form',
           '/components/layout',
-          '/components/Nav'
+          '/components/Nav',
+          '/components/Notice',
+          '/components/Other',
         ]
       }
     ]

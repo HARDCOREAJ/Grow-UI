@@ -18,12 +18,6 @@ export default {
 }
 
 
-
-
-
-
-
-
 /* helper */
 function initToast({ Vue, message, propsData, onClose }) {
   let Constructor = Vue.extend(Toast)
