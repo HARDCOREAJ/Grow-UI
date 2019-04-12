@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Grow UI',
   base:'/Grow-UI/',
-  description: '一套用于交流和总结学习的UI',
+  description: '一个简洁UI库',
   markdown: {
     lineNumbers: true
   },
@@ -9,7 +9,7 @@ module.exports = {
     displayAllHeaders: true,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
+      { text: 'Github', link: 'https://github.com/HARDCOREAJ/Grow-UI' },
       { text: 'External', link: 'https://google.com' },
     ],
     sidebar: [

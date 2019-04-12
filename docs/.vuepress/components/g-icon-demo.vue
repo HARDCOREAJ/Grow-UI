@@ -4,7 +4,7 @@
         <g-icon name="right"></g-icon>
         <g-icon name="error"></g-icon>
         <g-icon name="tips"></g-icon>
-        <g-icon name="dowbload"></g-icon>
+        <g-icon name="download"></g-icon>
         <g-icon name="thumsup"></g-icon>
         <g-icon name="loading"></g-icon>
     </div>
