@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "var";
+@import "_var";
 .cascaderItem {
   display: flex;
   justify-content: flex-start;
@@ -61,19 +61,21 @@ export default {
   height: 100px;
   .left {
     height: 100%;
-    padding: 0.3em 0;
+    padding: .3em 0;
+    overflow: auto;
   }
   .right {
     height: 100%;
     border-left: 1px solid $border-color-light;
+    
   }
   .label {
-    padding: 0.3em 1em;
+    padding: .3em 1em;
     display: flex;
     align-items: center;
     .icon {
       margin-left: 1em;
-      transform: scale(0.5);
+      transform: scale(0.3);
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
 <div class="cascader">
     <div class="trigger" @click="popoverVisible=!popoverVisible">
-        {{result||'&nbsp;'}}
+        {{result ||'&nbsp;'}}
     </div>
         <div class="popover-wrapper" v-if="popoverVisible">
             <cascader-items :items="source" class="popover" :height="popoverHeight" :selected="selected"
@@ -11,18 +11,18 @@
 </template>
 
 <script>
-import CascaderItems from './cascader-item'
+import CascaderItems from "./cascader-item";
 export default {
   name: "GrowCascader",
-  components: {CascaderItems},
+  components: { CascaderItems },
   props: {
     source: {
       type: Array
     },
     selected: {
       type: Array,
-      default:()=>{
-          return []
+      default: () => {
+        return [];
       }
     },
     popoverHeight: {
@@ -32,32 +32,31 @@ export default {
   data() {
     return { popoverVisible: false };
   },
-  methods:{
-      onUpdateSelected(newSelected){
-          this.$emit('update:selected',newSelected)
-      }
+  methods: {
+    onUpdateSelected(newSelected) {
+      this.$emit("update:selected", newSelected);
+    }
   },
-  computed:{
-      result(){
-          return this.selected.map((item)=>{item.name}).join('/')
-      }
-  },
+  computed: {
+    result() {
+      return this.selected.map(item => item.name).join("/");
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "var";
+@import "_var";
 .cascader {
   position: relative;
-  .trigger{
-      height: $input-height;
-      border-radius: $border-radius;
-      border: 1px solid $border-color;
-      padding: 0 1em;
-      min-width: 10em;
-      display: inline-flex;
-      align-items: center;
-
+  .trigger {
+    height: $input-height;
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+    padding: 0 1em;
+    min-width: 10em;
+    display: inline-flex;
+    align-items: center;
   }
   .popover-wrapper {
     margin-top: 8px;
