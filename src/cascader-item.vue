@@ -42,7 +42,8 @@ export default {
     onClickLable(item) {
       let copy = JSON.parse(JSON.stringify(this.selected));
       copy[this.level] = item;
-      console.log(this.copy);
+      copy.splice(this.level+1)
+      console.log(this.level)
       this.$emit("update:selected", copy);
     },
     onUpdateSelected(newSelected) {
@@ -59,14 +60,13 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
   height: 100px;
-  border: 1px solid red;
   .left {
     height: 100%;
     padding: 0.3em 0;
   }
   .right {
     height: 100%;
-    border-left: 1px solid yellow;
+    border-left: 1px solid $border-color-light;
   }
   .label {
     padding: 0.3em 1em;
