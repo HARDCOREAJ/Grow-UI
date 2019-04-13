@@ -29,20 +29,29 @@ export default {
   },
   computed: {
     rightItems() {
-      let currentSelected = this.selected[this.level];
-      if (currentSelected && currentSelected.children) {
-        return currentSelected.children;
-      } else {
-        return null;
+      if (this.selected[this.level]) {
+        let selected = this.items.filter(
+          item => item.name === this.selected[this.level].name
+        );
+        if (
+          selected &&
+          selected[0].children &&
+          selected[0].children.length > 0
+        ) {
+          return selected[0].children;
+        }
       }
     }
   },
   mounted() {},
+  updated() {
+    console.log("cascader items updated");
+  },
   methods: {
     onClickLable(item) {
       let copy = JSON.parse(JSON.stringify(this.selected));
       copy[this.level] = item;
-      copy.splice(this.level+1)
+      copy.splice(this.level + 1);
       this.$emit("update:selected", copy);
     },
     onUpdateSelected(newSelected) {
@@ -56,26 +65,25 @@ export default {
 @import "_var";
 .cascaderItem {
   display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
   height: 100px;
   .left {
     height: 100%;
-    padding: .3em 0;
+    padding: 0.3em 0;
     overflow: auto;
   }
   .right {
     height: 100%;
     border-left: 1px solid $border-color-light;
-    
   }
   .label {
-    padding: .3em 1em;
+    padding: 0.3em 1em;
     display: flex;
     align-items: center;
     .icon {
       margin-left: 1em;
-      transform: scale(0.3);
+      transform: scale(0.5);
     }
   }
 }
