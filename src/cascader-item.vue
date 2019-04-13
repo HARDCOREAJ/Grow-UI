@@ -1,9 +1,9 @@
 <template>
     <div class="cascaderItem" :style="{height:height}">
         <div class="left">
-            <div class="lable" v-for="(item,index) in items" @click="onClickLable(item)" :key="index">
-                {{item.name}}
-                <icon class="icon" v-if="item.children" name="right"></icon>
+            <div class="label" v-for="(item,index) in items" @click="onClickLable(item)" :key="index">
+              <span class="name">{{item.name}}</span>
+              <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
             </div>
         </div>
         <div class="right" v-if="rightItems">
@@ -21,7 +21,10 @@ export default {
   props: {
     items: { type: Array },
     height: { type: String },
-    selected: { type: Array },
+    selected: { type: Array, default: () => [] },
+    loadData: {
+      type: Function
+    },
     level: {
       type: Number,
       default: 0
@@ -48,6 +51,9 @@ export default {
     console.log("cascader items updated");
   },
   methods: {
+    rightArrowVisible(item) {
+      return this.loadData ? !item.isLeaf : item.children;
+    },
     onClickLable(item) {
       let copy = JSON.parse(JSON.stringify(this.selected));
       copy[this.level] = item;
@@ -62,12 +68,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "_var";
+@import "var";
 .cascaderItem {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 100px;
+  min-height: 100px;
   .left {
     height: 100%;
     padding: 0.3em 0;
@@ -78,11 +84,19 @@ export default {
     border-left: 1px solid $border-color-light;
   }
   .label {
-    padding: 0.3em 1em;
+    padding: 0.5em 1em;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    &:hover {
+      background: $grey;
+    }
+    > .name {
+      margin-right: 1em;
+      user-select: none;
+    }
     .icon {
-      margin-left: 1em;
+      margin-left: auto;
       transform: scale(0.5);
     }
   }
