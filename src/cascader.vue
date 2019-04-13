@@ -1,6 +1,6 @@
 <template>
-<div class="cascader">
-    <div class="trigger" @click="popoverVisible=!popoverVisible">
+<div class="cascader"  ref="cascader" v-click-outside="close">
+    <div class="trigger" @click="toggle">
         {{result ||'&nbsp;'}}
     </div>
         <div class="popover-wrapper" v-if="popoverVisible">
@@ -12,9 +12,12 @@
 
 <script>
 import CascaderItems from "./cascader-item";
+import {removeListener} from './click-outside'
+import ClickOutside from './click-outside'
 export default {
   name: "GrowCascader",
   components: { CascaderItems },
+  directives: {ClickOutside},
   props: {
     source: {
       type: Array
@@ -37,6 +40,19 @@ export default {
   },
   updated() {},
   methods: {
+    open(){
+      this.popoverVisible = true
+    },
+    close(){
+      this.popoverVisible = false
+    },
+    toggle() {
+      if (this.popoverVisible === true) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
     onUpdateSelected(newSelected) {
       this.$emit("update:selected", newSelected);
       let lastItem = newSelected[newSelected.length - 1];
@@ -83,6 +99,9 @@ export default {
         this.loadData && this.loadData(lastItem, updateSource); // 回调:把别人传给我的函数调用一下
         // 调回调的时候传一个函数,这个函数理论应该被调用
       }
+    },
+    destroyed(){
+      removeListener()
     }
   },
   computed: {
@@ -96,6 +115,7 @@ export default {
 <style lang="scss" scoped>
 @import "var";
 .cascader {
+  display: inline-block;
   position: relative;
   .trigger {
     height: $input-height;
