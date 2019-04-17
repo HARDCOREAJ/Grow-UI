@@ -3,11 +3,20 @@
         <div class="left">
             <div class="label" v-for="(item,index) in items" @click="onClickLable(item)" :key="index">
               <span class="name">{{item.name}}</span>
-              <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
+              <span class="icons">
+          <template v-if="item.name === loadingItem.name">
+            <icon class="loading" name="loading"></icon>
+          </template>
+          <template v-else>
+            <icon class="next" v-if="rightArrowVisible(item)" name="right"></icon>
+          </template>
+        </span>
             </div>
         </div>
         <div class="right" v-if="rightItems">
             <grow-cascader-items ref="right" :items="rightItems" :height="height"
+            :loading-item="loadingItem"
+            :load-data="loadData"
             :level="level+1" :selected="selected" @update:selected="onUpdateSelected"></grow-cascader-items>
         </div>
     </div>
@@ -24,6 +33,10 @@ export default {
     selected: { type: Array, default: () => [] },
     loadData: {
       type: Function
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({})
     },
     level: {
       type: Number,
@@ -96,9 +109,14 @@ export default {
       margin-right: 1em;
       user-select: none;
     }
-    .icon {
+    .icons {
       margin-left: auto;
-      transform: scale(0.5);
+      .nex {
+        transform: scale(0.5);
+      }
+      .loading {
+        animation: spin 2s infinite linear;
+      }
     }
   }
 }

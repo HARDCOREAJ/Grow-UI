@@ -5,10 +5,9 @@
     <p>{{selected &&selected[2] &&selected[2].name || '空'}}</p>
     <div style="padding: 20px;">
         <g-cascader :source.sync="source" popover-height="200px"
-        @update:source="onUpdateSource"
-        @update:selected="onUpdateSelected"
         :selected.sync="selected" :load-data="loadData"></g-cascader>
     </div>
+    {{selected.map(item=> item.name)}}
   </div>
 </template>
 <script>
@@ -53,8 +52,6 @@ export default {
         updateSource(result); // 回调:把别人传给我的函数调用一下
       });
     },
-    onUpdateSource() {},
-    onUpdateSelected() {}
   }
 };
 </script>
