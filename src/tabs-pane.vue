@@ -36,6 +36,7 @@ export default {
 .tabs-pane {
   padding: 1em;
   &.active {
+    background: rgba(0, 0, 0, 0.75);
   }
 }
 </style> 

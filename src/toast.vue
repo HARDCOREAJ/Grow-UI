@@ -77,7 +77,7 @@ export default {
     onClickClose() {
       this.close();
       if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback(this); //this === toast实例,接受的参数为当前组件作为实例
+        this.closeButton.callback(this); //this === toast实例,接受的参数为当前组件实例
       }
     }
   } 
@@ -119,7 +119,6 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  $animation-duration: 300ms;
   &.position-top {
     top: 0;
     .toast {
