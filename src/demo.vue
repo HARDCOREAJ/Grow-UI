@@ -9,7 +9,7 @@
     </div>
     {{selected.map(item=> item.name)}} -->
 
-    <g-slides class="wrapper" width="300px" height="200px" :selected.sync="selected">
+<!-- <g-slides class="wrapper" width="300px" height="200px" :selected.sync="selected">
       <g-slides-item name="1">
         <div class="box">1</div>
       </g-slides-item>
@@ -19,16 +19,41 @@
       <g-slides-item name="3">
         <div class="box">3</div>
       </g-slides-item>
-    </g-slides>
+    </g-slides> -->
 
+    <g-nav :selected.sync="selected" vertical width="300px">
+      <g-nav-item name="home">首页</g-nav-item>
+      <g-sub-nav name="about">
+        <template slot="title">关于</template>
+        <g-nav-item name="culture">企业文化</g-nav-item>
+        <g-nav-item name="developers">开发团队</g-nav-item>
+        <g-sub-nav name="contacts">
+          <template slot="title">联系方式</template>
+          <g-nav-item name="wechat">微信</g-nav-item>
+          <g-nav-item name="qq">QQ</g-nav-item>
+          <g-sub-nav name="phone">
+            <template slot="title">手机</template>
+            <g-nav-item name="cm">移动</g-nav-item>
+            <g-nav-item name="cu">联通</g-nav-item>
+            <g-nav-item name="cn">电信</g-nav-item>
+          </g-sub-nav>
+        </g-sub-nav>
+      </g-sub-nav>
+      <g-nav-item name="hire">招聘</g-nav-item>
+    </g-nav>
+    <p>你好，我是中文</p>
   </div>
   
 </template>
 <script>
 /* import Cascader from "./cascader";
 import db from "./db"; */
-import Slides from "./slides";
-import SlidesItem from "./slide-item";
+/* import Slides from "./slides";
+import SlidesItem from "./slide-item"; */
+import GNav from './nav'
+import GNavItem from './nav-item'
+import GSubNav from './sub-nav'
+
 /* function ajax(parentId = 0) {
   return new Promise((success, fail) => {
     setTimeout(() => {
@@ -46,16 +71,18 @@ import SlidesItem from "./slide-item";
 } */
 
 export default {
+  
   name: "demo",
   components: {
     /*     "g-cascader": Cascader, */
-    "g-slides": Slides,
-    "g-slides-item": SlidesItem
+    /* "g-slides": Slides,
+    "g-slides-item": SlidesItem */
+    GNav, GNavItem, GSubNav
   },
   data() {
     return {
       source: [],
-      selected: "undefined"
+      selected: "culture"
     };
   },
   created() {
